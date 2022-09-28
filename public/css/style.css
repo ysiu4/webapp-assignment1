@@ -1,0 +1,16 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.form-label {
+  padding-top: 8px;   /* more space above form label */
+}
+
+.nav-item .nav-link {
+  font-size: 0.75pc;  /* smaller font for nav buttons */
+}
