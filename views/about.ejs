@@ -2,8 +2,32 @@
 
 <main class="container">
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <img src="./img/icon.png">
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <p>
+                    <img src="./img/self.jpg" width="150px">
+                </p>
+                <p class="text-center" >
+                    <i class="bi bi-file-person"></i>
+                    <a href="/Resume-SiuYukMing-20220928.fakeaddr.pdf">My Resume</a>
+                </p>
+            </div>
+            <div class="col-md-auto">
+                <h3>Yuk Ming Siu (aka Vic)</h3>
+                <h5>Embedded System Developer, and Project Manager in Toronto</h5>
+                <p class="">
+                    Vic began developing software since middle school, he likes making software.<br>
+                    He self-learned all programming languages, from Assembly languages to Python.<br>
+                    He made a simple blackjack game in a 
+                        <a href="https://www.calculator.org/calculators/Casio_fx-3600P.html">Casio fx-3600P</a> 
+                        calculator when studying in junior high school. <br>
+                </p>
+            </div>
+        </div>
+    </div>
+
 </main>
 
 <%- include('partials/footer') %>
