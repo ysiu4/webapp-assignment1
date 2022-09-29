@@ -1,5 +1,10 @@
 #!/usr/bin/env node
 
+MyInfo = {
+  name: 'Yuk Ming Siu',
+  email: 'ysiu4@my.centennialcollege.ca',
+}
+
 var app = require('./app');
 
 // get port from environment, or use 3000 if not exist

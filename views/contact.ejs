@@ -1,6 +1,6 @@
-<% include _header %>
+<%- include('partials/header') %>
 
-<div class="container">
+<main class="container">
   <form action="/contact/submit" method="post">
     <label for="firstname" class="form-label">First name</label>
     <input type="text" class="form-control" name="firstname">
@@ -8,10 +8,13 @@
     <input type="text" class="form-control" name="lastname">
     <label for="email" class="form-label">Email address</label>
     <input type="email" class="form-control" name="email">
+    <label for="contactnumber" class="form-label">Contact number</label>
+    <input type="tel" class="form-control" name="contactnumber">
     <label for="message" class="form-label">Leave me some messages :)</label>
     <textarea name="message" class="form-control" ></textarea>
+    <br>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
-</div>
+</main>
 
-<% include _footer %>
+<%- include('partials/footer') %>
