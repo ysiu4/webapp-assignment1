@@ -3,6 +3,8 @@
 <main class="container">
   <h1 class="main-caption"><%= title %></h1>
 
+  <h4>You may send me an <a href="mailto:<%= my_info.email %>">email</a>, or leave a message below.</h4>
+
   <form action="/contact/submit" method="post">
     <label for="firstname" class="form-label">First name</label>
     <input type="text" class="form-control" name="firstname">
