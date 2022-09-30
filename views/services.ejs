@@ -1,9 +1,21 @@
-<% include _header %>
+<%- include('partials/header') %>
 
-<div class="container">
-  <h1><%= title %></h1>
-  <p>Welcome to <%= title %></p>
-  <img src="./img/icon.png">
-</div>
+<main class="container">
+  <h1 class="main-caption"><%= title %></h1>
+  <p class="font-weight-bold">As an experienced embedded system developer, my specialties are ...</p>
+  <ul class="font-weight-normal">
+    <li>Android System Implementation</li>
+    <br>
+    <li>Android App Development</li>
+    <br>
+    <li>Python programming</li>
+    <br>
+    <li>Web App Development</li>
+    <br>
+    <li>Software Development for Low Grade CPUs, such as 8051 and 6502.</li>
+    <br>
+  </ul>
+  <p><a href="/contact">Contact me.</a></p>
+</main>
 
-<% include _footer %>
+<%- include('partials/footer') %>
