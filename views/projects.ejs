@@ -1,9 +1,39 @@
-<% include _header %>
+<%- include('partials/header') %>
 
-<div class="container">
-  <h1><%= title %></h1>
-  <p>Welcome to <%= title %></p>
-  <img src="./img/icon.png">
-</div>
+<main class="container">
+  <h1 class="main-caption"><%= title %></h1>
 
-<% include _footer %>
+  <div class="container shadow">
+    <h2>Game Engine for a TV Game Console</h2>
+    <p><img alt="VTech's V.Smile" src="https://upload.wikimedia.org/wikipedia/en/0/07/V.Smile_Logo.svg" height="120px"/></p>
+    <p>I designed and implemented a game engine for 2D games on a proprietary TV game console, it makes inexperience programmers to finish game development with less bugs.;</p>
+    <p>A game designer tool was made for the game engine, graphic designers used it to input graphics and animations. Programmers and game designers could work in parallel.</p>
+    <p>The TV game console has an incommon proprietary 16-bit CPU SoC, it has no C++ compiler. The game engine was designed and constructed to mimic object oriented.</p>
+    <br>
+  </div>
+  <br><br>
+  <div class="container shadow">
+    <h2>Repository Permission Management Tool</h2>
+    <p><img src="https://www.python.org/static/community_logos/python-powered-h.svg" height="120px"> <img src="/img/logo-gradient-blue-bitbucket.svg" max-height="120px"></p>
+    <p><a href="https://bitbucket.org/">Bitbucket</a> is a git-based source code control system, just like GitHub.</p>
+    <p>Managing Bitbucket repository permissions for over 200 projects and 100 programmers is crucial but difficult.</p>
+    <p>I made a tool in Python. The manager can grant or revoke repository permissions inside a single Excel file, then the tool makes changes to the Bitbucket server accordingly by using its web api.<br>
+    <p>With this tool, managing large amount of repository permissions is no longer a tedious and error prone job.</p>
+    <br>
+  </div>
+
+  <br><br>
+  <div class="container shadow">
+    <h2>Virtual Machine for Games in Toys</h2>
+    <p><img src="/img/vm-handdraw.jpg" height="120px"/></p>
+    <p>In electronic toy industry, the SoC is always chosen by its low cost.</p>
+    <p>I worked in such an industry that requiring programming on different CPUs and very limit amount of RAM. I designed and implemented a virtual machine that small scale games can run on different low grade CPU platforms, together with a simple compiler.</p>
+    <p>I learned and referred to Java Virtual Machine to finish this task.</p>
+    <br>
+  </div>
+  <br><br>
+
+</main>
+
+<%- include('partials/footer') %>
+

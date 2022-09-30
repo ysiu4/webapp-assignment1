@@ -1,6 +1,8 @@
 <%- include('partials/header') %>
 
 <main class="container">
+  <h1 class="main-caption"><%= title %></h1>
+
   <form action="/contact/submit" method="post">
     <label for="firstname" class="form-label">First name</label>
     <input type="text" class="form-control" name="firstname">

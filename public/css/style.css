@@ -14,3 +14,7 @@ a {
 .nav-item .nav-link {
   font-size: 0.75pc;  /* smaller font for nav buttons */
 }
+
+.main-caption {
+  font-family: Consolas, 'Courier New', Courier, monospace;
+}
