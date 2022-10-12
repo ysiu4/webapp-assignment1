@@ -1,11 +1,12 @@
 {
-  "name": "assignment1",
+  "name": "assignment2",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./server.js"
+    "start": "node ./server/server.js"
   },
   "dependencies": {
+    "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.1",
     "bootstrap-icons": "^1.9.1",
     "cookie-parser": "~1.4.4",
@@ -13,7 +14,9 @@
     "express": "~4.16.1",
     "express-session": "^1.17.3",
     "http-errors": "~1.6.3",
+    "jquery": "^3.6.1",
     "method-override": "3.0.0",
+    "mongoose": "^6.6.5",
     "morgan": "~1.9.1"
   }
 }

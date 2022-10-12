@@ -2,7 +2,7 @@
  * File: index.js
  * Student name: Yuk Ming Siu
  * Student ID: 301244053
- * Date: 2022-09-30
+ * Date: 2022-10-12
  * Course: COMP229-014
  */
 
