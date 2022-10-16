@@ -11,7 +11,7 @@
 var app = require('./config/app');
 
 // get port from environment, or use 3000 if not exist
-var port = process.env.PORT || '3000';
+var port = process.env.PORT || '4000';
 
 // start listening to the port
 app.listen(port, () => {
