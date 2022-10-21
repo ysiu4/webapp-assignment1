@@ -17,7 +17,26 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var morgan = require('morgan');
+var session = require('express-session');
+var passport = require('passport');
+var flash = require("connect-flash");
+var LocalStrategy = require('passport-local').Strategy;
 
+
+//database_setup
+let mongoose = require("mongoose");
+let DB = require("./db");
+
+//point mongoose to the DB URI
+mongoose.connect(DB.URI, { useNewUrlParser: true, useUnifiedTopology: true });
+
+let mongodb = mongoose.connection;
+mongodb.on("error", console.error.bind(console, "connection error:"));
+mongodb.once("open", () => {
+  console.log("Database Connected");
+});
+
+ 
 var app = express();
 
 // view engine setup
@@ -30,11 +49,48 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, '../../public')));
-// app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));
 app.use(express.static(path.join(__dirname, '../../node_modules/bootstrap/dist/')));
-app.use(express.static(path.join(__dirname, '../../node_modules/jquery/dist')));
-app.use(express.static(path.join(__dirname, '../../node_modules/@popperjs/core/dist/umd')));
+app.use('/js', express.static(path.join(__dirname, '../../node_modules/jquery/dist')));
+// app.use('/js', express.static(path.join(__dirname, '../../node_modules/@popperjs/core/dist/umd')));
 app.use('/bootstrap-icons', express.static(path.join(__dirname, '../../node_modules/bootstrap-icons')));
+
+//initialize session
+app.use(
+  session({
+    secret: '92PrYWbKLzdd7zvj2vOe',
+    saveUninitialized: false,
+    resave: false,
+    cookie: { maxAge: 60 * 60 * 1000 },
+  })
+);
+
+//initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+//prepare User model schema
+let User = require('../models/user').User;
+
+// User.register(
+//   { 
+//     username: 'yukming', 
+//     active: true, 
+//     email: 'ysiu4@example.com',
+//     display_name: 'Vic',
+//   }, 
+//   'be-happy'
+// );
+
+//implement a user authenication strategy
+passport.use(User.createStrategy());
+
+//serialize and deserialize user object info -encrypt and decrypt
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+//initialize flash
+app.use(flash());
+
 
 // use routers
 app.use('/', require('../routes/index'));

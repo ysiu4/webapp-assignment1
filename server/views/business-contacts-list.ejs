@@ -1,0 +1,51 @@
+<%- include('partials/header') %>
+
+<main class="container">
+  <div class="row">
+    <div class="col-md-offset-3 col-md-8">
+      <h1 class="main-caption"><%= title %></h1>
+      <% if (typeof user_display_name == 'string' && user_display_name) { %>
+        <a href="/business-contacts-add" class="btn btn-primary" role="button">
+          <i class ="fas fa-plus-circle"></i> Add new contact
+        </a>
+      <% } %>
+      <br>
+      <table class="table table-bordered table-striped table-hover">
+        <!--Header row-->
+        <tr>
+          <th class="text-center">Name</th>
+          <th class="text-center">Contact Number</th>
+          <th class="text-center">Email</th>
+          <% if (typeof user_display_name == 'string' && user_display_name) { %>
+            <th class="text-center"></th>
+            <th class="text-center"></th>
+          <% } %>
+        </tr>
+
+        <!-- contact list -->
+        <% for (let count = 0; count < contacts.length; count++) { %>
+          <tr>
+            <td class="text-centre "><%= contacts[count].name %></td>
+            <td class="text-centre "><%= contacts[count].contact_number %></td>
+            <td class="text-centre "><%= contacts[count].email %></td>
+            
+            <% if(typeof user_display_name == 'string' && user_display_name) { %>
+                <td class="text-center col-1">
+                    <a href="/business-contacts-edit/<%= contacts[count]._id %>" class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                </td>
+                <td class="text-center col-1">
+                    <a href="/business-contacts-delete/<%= contacts[count]._id %>" class="btn btn-danger btn-sm">
+                        Delete
+                    </a>
+                </td>
+            <% } %>
+          </tr>
+        <% } %>
+      </table>
+    </div>
+  </div>
+</main>
+
+<%- include('partials/footer') %>

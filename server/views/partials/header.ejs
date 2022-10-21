@@ -10,8 +10,8 @@
 
         <link rel="stylesheet" href="/css/bootstrap.min.css">
         <link rel='stylesheet' href='/css/style.css' />
-        <script src="/js/jquery.slim.min.js"></script>
-        <script src="/js/popper.min.js"></script>
+        <script src="/js/jquery.min.js"></script>
+        <!-- <script src="/js/popper.min.js"></script> -->
         <script src="/js/bootstrap.bundle.min.js"></script>
 
         <link rel="stylesheet" href="/bootstrap-icons/font/bootstrap-icons.css">
@@ -40,6 +40,24 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/contact">Contact Me</a>
                         </li>
+                        
+                        <% if(typeof user_display_name == 'string' && user_display_name) { %>
+                            <!-- logged in, show a dropdown for business-contact and logout -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button">
+                                    <i class="bi bi-person-circle"></i> <%= user_display_name %>
+                                </a>
+                                <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="/business-contacts">Business Contacts</a>
+                                        <a class="dropdown-item " href="/logout">Logout</a>
+                                </div>
+                            </li>
+                        <% } else { %>
+                            <!-- if not yet logged in, show login button -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="/login">Login</a>
+                            </li>
+                        <% } %>
                     </ul>
                 </div>
             </div>
