@@ -1,4 +1,4 @@
-<%- include('partials/header') %>
+<%- include('../partials/header') %>
 
 <div class="container">
   <h1 class="main-caption"><%= title %></h1>
@@ -9,29 +9,26 @@
           <label for="name">Name</label>
           <input type="text" class="form-control"
             id="name" name="name" placeholder="Name"
-            value="<%= contact.name %>"
             required>
-        </div>
+        </div><br>
         <div class="from-group">
           <label for="contact_number">Contact Number</label>
           <input type="text" class="form-control"
             id="contact_number" name="contact_number" placeholder="Contact number"
-            value="<%= contact.contact_number %>"
             required>
-        </div>
+        </div><br>
         <div class="from-group">
           <label for="email">Email</label>
           <input type="email" class="form-control"
             id="email" name="email" placeholder="Email"
-            value="<%= contact.email %>"
             required>
         </div>
-        <br>
-        <button class="btn btn-primary" type="submit">Update</button>
-        <a href="/business-contacts" class="btn btn-danger btn-sm">Cancel</a>
+        <br><br>
+        <button class="btn btn-primary" type="submit">Add</button>
+        <a href="/business-contacts" class="btn btn-secondary btn-sm">Cancel</a>
       </form>
     </div>
   </div>
 </div>
 
-<%- include('partials/footer') %>
+<%- include('../partials/footer') %>

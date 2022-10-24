@@ -51,7 +51,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../../public')));
 app.use(express.static(path.join(__dirname, '../../node_modules/bootstrap/dist/')));
 app.use('/js', express.static(path.join(__dirname, '../../node_modules/jquery/dist')));
-// app.use('/js', express.static(path.join(__dirname, '../../node_modules/@popperjs/core/dist/umd')));
 app.use('/bootstrap-icons', express.static(path.join(__dirname, '../../node_modules/bootstrap-icons')));
 
 //initialize session
@@ -71,16 +70,6 @@ app.use(passport.session());
 //prepare User model schema
 let User = require('../models/user').User;
 
-// User.register(
-//   { 
-//     username: 'yukming', 
-//     active: true, 
-//     email: 'ysiu4@example.com',
-//     display_name: 'Vic',
-//   }, 
-//   'be-happy'
-// );
-
 //implement a user authenication strategy
 passport.use(User.createStrategy());
 
@@ -94,6 +83,8 @@ app.use(flash());
 
 // use routers
 app.use('/', require('../routes/index'));
+app.use('/business-contacts', require('../routes/business-contacts'));
+
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
