@@ -1,5 +1,5 @@
 /* 
- * File: index.js
+ * File: controllers/business-contacts.js
  * Student name: Yuk Ming Siu
  * Student ID: 301244053
  * Date: 2022-10-12
@@ -29,7 +29,6 @@ module.exports.displayContacts = (req, res, next) => {
     return res.redirect('/login');
   }
 
-  //TODO: Need to sort the results
   //logged in, show business contacts page
   BusinessContact.find({}, {}, { sort: {name: 'asc'}}, (err, contacts) => {
     console.log("displayContacts: " + contacts);

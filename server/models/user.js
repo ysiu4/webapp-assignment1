@@ -1,3 +1,11 @@
+/* 
+ * File: models/user.js
+ * Student name: Yuk Ming Siu
+ * Student ID: 301244053
+ * Date: 2022-10-12
+ * Course: COMP229-014
+ */
+
 let mongoose = require('mongoose')
 let passport_local_mongoose = require('passport-local-mongoose')
 
