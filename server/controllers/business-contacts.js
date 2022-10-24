@@ -17,6 +17,11 @@ let User = require("../models/user").User;
 //create BusinessContact model
 let BusinessContact = require('../models/business_contact').BusinessContact;
 
+
+getUserDisplayName = (req) => {
+  return req.user ? req.user.display_name : '';
+}
+
 /* GET display business contacts page */
 module.exports.displayContacts = (req, res, next) => {
   if (!req.user) {
@@ -26,11 +31,12 @@ module.exports.displayContacts = (req, res, next) => {
 
   //TODO: Need to sort the results
   //logged in, show business contacts page
-  BusinessContact.find({}, (err, contacts) => {
+  BusinessContact.find({}, {}, { sort: {name: 'asc'}}, (err, contacts) => {
+    console.log("displayContacts: " + contacts);
     res.render('business-contacts/list', {
       title: "Business Contacts",
       my_info: MyInfo,
-      user_display_name: req.user ? req.user.display_name : "",
+      user_display_name: getUserDisplayName(req),
       contacts: contacts,
     })
   });
@@ -45,7 +51,7 @@ module.exports.displayContactAdd = (req, res, next) => {
   res.render('business-contacts/add', {
     title: "Business Contacts",
     my_info: MyInfo,
-    user_display_name: req.user ? req.user.display_name : "",
+    user_display_name: getUserDisplayName(req),
   });
 };
 
@@ -86,7 +92,7 @@ module.exports.displayContactEdit = (req, res, next) => {
         title: "Business Contacts",
         my_info: MyInfo,
         contact: contact,
-        user_display_name: req.user ? req.user.display_name : "",
+        user_display_name: getUserDisplayName(req),
       });
     }
   });

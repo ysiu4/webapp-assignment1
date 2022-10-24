@@ -8,11 +8,15 @@
 
 passport = require('passport');
 
+getUserDisplayName = (req) => {
+  return req.user ? req.user.display_name : '';
+}
+
 module.exports.displayHomePage = (req, res, next) => {
   res.render('index', { 
     title: 'Welcome',
     my_info: MyInfo,
-    user_display_name: req.user ? req.user.display_name : "",
+    user_display_name: getUserDisplayName(req),
   });
 };
 
@@ -20,7 +24,7 @@ module.exports.displayAboutMe = (req, res, next) => {
   res.render('about', {
     title: "About Me",
     my_info: MyInfo,
-    user_display_name: req.user ? req.user.display_name : "",
+    user_display_name: getUserDisplayName(req),
   });
 };
 
@@ -28,7 +32,7 @@ module.exports.displayProjects = (req, res, next) => {
   res.render('projects', {
     title: "My Projects",
     my_info: MyInfo,
-    user_display_name: req.user ? req.user.display_name : "",
+    user_display_name: getUserDisplayName(req),
   });
 };
 
@@ -36,7 +40,7 @@ module.exports.displayServices = (req, res, next) => {
   res.render('services', {
     title: "My Services",
     my_info: MyInfo,
-    user_display_name: req.user ? req.user.display_name : "",
+    user_display_name: getUserDisplayName(req),
   });
 };
 
@@ -44,7 +48,7 @@ module.exports.displayContactMe = (req, res, next) => {
   res.render('contact', { 
     title: 'Contact Me', 
     my_info: MyInfo,
-    user_display_name: req.user ? req.user.display_name : "",
+    user_display_name: getUserDisplayName(req),
   });
 };
 
@@ -54,7 +58,7 @@ module.exports.processContactMe = (req, res, next) => {
   res.render('contact_submitted', {
     my_info: MyInfo,
     contact_info: req.body,
-    user_display_name: req.user ? req.user.display_name : "",
+    user_display_name: getUserDisplayName(req),
   })
 };
 
@@ -64,7 +68,7 @@ module.exports.displayLogin = (req, res, next) => {
       title: 'Login', 
       my_info: MyInfo,
       messages: req.flash('login_message'),
-      user_display_name: req.user ? req.user.display_name : "",
+      user_display_name: getUserDisplayName(req),
     });
   } else {
     return res.redirect('/');
