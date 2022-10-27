@@ -30,7 +30,7 @@ module.exports.displayContacts = (req, res, next) => {
   }
 
   //logged in, show business contacts page
-  BusinessContact.find({}, {}, { sort: {name: 'asc'}}, (err, contacts) => {
+  BusinessContact.find({}, {}, { collation: {'locale': 'en'}, sort: {name: 'asc'}}, (err, contacts) => {
     console.log("displayContacts: " + contacts);
     res.render('business-contacts/list', {
       title: "Business Contacts",
